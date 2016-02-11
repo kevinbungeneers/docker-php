@@ -1,13 +1,14 @@
 FROM php:5.6
 
-RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev libpq-dev
+RUN apt-get update && apt-get install -y zlib1g-dev libicu-dev libpq-dev git
 
 RUN docker-php-ext-install mbstring \
     && docker-php-ext-install iconv \
     && docker-php-ext-install intl \
     && docker-php-ext-install pdo \
     && docker-php-ext-install pdo_mysql \
-    && docker-php-ext-install pdo_pgsql
+    && docker-php-ext-install pdo_pgsql \
+    && docker-php-ext-install zip
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
