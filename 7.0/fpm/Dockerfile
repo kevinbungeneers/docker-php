@@ -9,6 +9,8 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo_pgsql
 
+RUN pecl install xdebug-beta
+
 # Make sure you escape characters that may have a special
 # meaning in regular expressions, like the '&' sign!
 ENV ENVIRONMENT "development"
@@ -16,6 +18,8 @@ ENV TIMEZONE "Europe/Brussels"
 ENV ERROR_REPORTING "E_ALL"
 ENV POST_MAX_SIZE "8M"
 ENV MEMORY_LIMIT "128M"
+ENV XDEBUG_IDEKEY "phpstorm"
+ENV XDEBUG_REMOTE_PORT "9009"
 
 RUN mkdir /config
 COPY php.ini-* /config/
@@ -24,5 +28,6 @@ COPY docker-entrypoint.sh /
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-EXPOSE 9000
+EXPOSE 9000 9009
+
 CMD ["php-fpm"]
