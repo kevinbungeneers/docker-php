@@ -9,6 +9,8 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo_pgsql
 
+RUN docker-php-ext-enable opcache
+
 # Make sure you escape characters that may have a special
 # meaning in regular expressions, like the '&' sign!
 ENV ENVIRONMENT "development"

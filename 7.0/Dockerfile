@@ -10,6 +10,8 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install zip
 
+RUN docker-php-ext-enable opcache
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Make sure you escape characters that may have a special
