@@ -18,8 +18,8 @@ ENV TIMEZONE "Europe/Brussels"
 ENV ERROR_REPORTING "E_ALL"
 ENV POST_MAX_SIZE "8M"
 ENV MEMORY_LIMIT "128M"
-ENV XDEBUG_IDEKEY "phpstorm"
-ENV XDEBUG_REMOTE_PORT "9009"
+ENV XDEBUG_IDEKEY "docker-php:7.0-fpm"
+ENV XDEBUG_REMOTE_PORT "9001"
 
 RUN mkdir /config
 COPY php.ini-* /config/
@@ -28,6 +28,6 @@ COPY docker-entrypoint.sh /
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
-EXPOSE 9000 9009
+EXPOSE 9000
 
 CMD ["php-fpm"]
