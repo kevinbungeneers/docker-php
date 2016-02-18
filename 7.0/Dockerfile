@@ -10,6 +10,8 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install pdo_pgsql \
     && docker-php-ext-install zip
 
+RUN pecl install xdebug-beta
+
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 # Make sure you escape characters that may have a special
@@ -18,6 +20,8 @@ ENV ENVIRONMENT "development"
 ENV TIMEZONE "Europe/Brussels"
 ENV ERROR_REPORTING "E_ALL"
 ENV MEMORY_LIMIT "128M"
+ENV XDEBUG_IDEKEY "docker-php:7.0-fpm"
+ENV XDEBUG_REMOTE_PORT "9001"
 
 RUN mkdir /config
 COPY php.ini-* /config/
