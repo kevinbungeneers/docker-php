@@ -1872,7 +1872,7 @@ xdebug.remote_enable=1
 xdebug.remote_host=172.17.42.1
 xdebug.remote_port=9001
 xdebug.remote_autostart=1
-xdebug.idekey='docker-php:7.0'
+xdebug.idekey="docker-php:7.0"
 
 ; Local Variables:
 ; tab-width: 4
