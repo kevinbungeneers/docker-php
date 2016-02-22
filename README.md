@@ -4,7 +4,6 @@ PHP 5.6 and 7.0 images for Docker. These extend the official ones and add the fo
 * iconv extension
 * pdo mysql extension
 * pdo pgsql extension
+* xdebug
 
-The CLI images also include Composer.
-
-Besides adding a few extensions these images can also be configured using environment variables.
+The CLI images also include Composer and the zip extension.
