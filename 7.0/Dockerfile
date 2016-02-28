@@ -11,6 +11,7 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install zip
 
 RUN docker-php-ext-enable opcache
+RUN pecl install xdebug-beta
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
@@ -20,6 +21,10 @@ ENV ENVIRONMENT "development"
 ENV TIMEZONE "Europe/Brussels"
 ENV ERROR_REPORTING "E_ALL"
 ENV MEMORY_LIMIT "128M"
+ENV XDEBUG_SERVER_NAME "www.docker-php.docker"
+ENV XDEBUG_IDEKEY "docker-php:7.0"
+ENV XDEBUG_REMOTE_HOST "172.17.42.1"
+ENV XDEBUG_REMOTE_PORT "9001"
 
 RUN mkdir /config
 COPY php.ini-* /config/
