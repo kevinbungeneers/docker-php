@@ -23,7 +23,7 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install gd
 
 RUN docker-php-ext-enable opcache
-RUN pecl install xdebug-beta
+RUN pecl install xdebug
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 

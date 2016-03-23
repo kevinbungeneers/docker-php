@@ -21,7 +21,7 @@ RUN docker-php-ext-install mbstring \
     && docker-php-ext-install gd
 
 RUN docker-php-ext-enable opcache
-RUN pecl install xdebug-beta
+RUN pecl install xdebug
 
 # Make sure you escape characters that may have a special
 # meaning in regular expressions, like the '&' sign!
